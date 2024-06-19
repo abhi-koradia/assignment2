@@ -49,6 +49,10 @@ router.get("/fetch-single", (req, res) => {
   const uploadDir = path.join(__dirname, "../upload");
   const uploads = fs.readdirSync(uploadDir);
 
+  // Log the list of all images
+  console.log("All images:", uploads);
+
+  // Add error handling
   if (uploads.length === 0) {
     return res.status(503).send({ message: "No images" });
   }
@@ -56,10 +60,14 @@ router.get("/fetch-single", (req, res) => {
   const randomIndex = Math.floor(Math.random() * uploads.length);
   const randomImage = uploads[randomIndex];
 
+  // Log the randomly selected image
+  console.log("Randomly selected image:", randomImage);
+
   res.sendFile(path.join(uploadDir, randomImage));
 });
 
 router.get("/fetch-random-images", (req, res) => {
+  
   const numImages = parseInt(req.query.num, 10);
   if (isNaN(numImages) || numImages < 1) {
     return res.status(400).send("Invalid number of images.");
