@@ -12,8 +12,8 @@ router.get("/gallery-pagination", (req, res) => {
   res.sendFile(path.join(__dirname, "../views", "gallery-pagination.html"));
 });
 
-router.get("/random-gallery", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views", "random-gallery.html"));
+router.get("/fetch-multiple", (req, res) => {
+  res.sendFile(path.join(__dirname, "../views", "fetch-multiple.html"));
 });
 
 router.get("/fetch-all/pages/:index", (req, res) => {
@@ -66,8 +66,7 @@ router.get("/fetch-single", (req, res) => {
   res.sendFile(path.join(uploadDir, randomImage));
 });
 
-router.get("/fetch-random-images", (req, res) => {
-  
+router.get("/fetch-multiple-images", (req, res) => {
   const numImages = parseInt(req.query.num, 10);
   if (isNaN(numImages) || numImages < 1) {
     return res.status(400).send("Invalid number of images.");

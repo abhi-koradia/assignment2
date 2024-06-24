@@ -3,12 +3,12 @@ Name: Abhi H. Koradia
 Number: n01597629
 
 <---All Path--->
-upload
-upload-multiple
-fetch-single
-gallery
-gallery-pagination
-random-gallery
+upload - upload single file
+upload-multiple - upload multiple file
+fetch-single - fetch random single image
+fetch-multiple - fetch image as user needed
+gallery - fetch all image
+gallery-pagination - fetch all with pagination
 */
 
 require("dotenv").config();
